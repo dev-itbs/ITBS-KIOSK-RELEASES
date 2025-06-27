@@ -1,0 +1,26 @@
+directories:
+  output: D:\PROJECTS\DICT\KIOSK\KIOSK-QUASAR\dist\electron\Packaged
+  buildResources: D:\PROJECTS\DICT\KIOSK\KIOSK-QUASAR\src-electron
+  app: D:\PROJECTS\DICT\KIOSK\KIOSK-QUASAR\dist\electron\UnPackaged
+appId: com.itbs-kiosk.app
+icon: D:\PROJECTS\DICT\KIOSK\KIOSK-QUASAR\src-electron\icons\icon
+productName: ITBS-KIOSK
+artifactName: ${productName}-Setup-${version}.exe
+mac:
+  target: dmg
+  icon: src-electron/icons/icon.icns
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+dmg:
+  contents:
+    - x: 130
+      'y': 220
+    - x: 410
+      'y': 220
+      type: link
+      path: /Applications
+afterSign: scripts/notarize.js
+files: []
+electronVersion: 34.2.0
